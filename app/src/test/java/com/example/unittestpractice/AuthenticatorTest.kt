@@ -5,6 +5,12 @@ import org.junit.Test
 
 class AuthenticatorTest {
 
+    /*
+    Global değişken tanımlayıp da test yapabilirsin
+     */
+
+    //fonk isimleri CamelCase Uygun olması daha iyi, bu otomatik create yaptığından sanırım
+    // ifAnyInput... yada if_any_input tarzız
     @Test
     fun `if any input is empty when register, returns false`() {
         val result1 = Authenticator.register("","Pitt","bradpitt@gmail.com","asd123","asd123")
