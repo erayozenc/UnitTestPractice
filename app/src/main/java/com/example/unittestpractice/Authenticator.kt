@@ -4,7 +4,7 @@ import java.util.regex.Pattern
 
 object Authenticator {
 
-    private val userList = listOf<User>(
+    private val userList = listOf( //<User> gerek yok
             User("Brad","Pitt","bradpitt@hotmail.com","asd123")
     )
 
@@ -17,9 +17,9 @@ object Authenticator {
     ) : Boolean {
         if (name.isEmpty() || surname.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty())
             return false
-        if (!email.contains("@") || !email.contains("."))
+        if (!email.contains("@") || !email.contains("."))//android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches(); -> Mail check
             return false
-        if (!isValidPassword(password))
+        if (!isValidPassword(password)) // rule mantığına gerek var mı  yada farklu bir rule olabilir
             return false
         if (password != confirmPassword)
             return false
@@ -27,7 +27,7 @@ object Authenticator {
             if (it.email == email)
                 return false
         }
-        val newUser = User(name, surname, email, password)
+       // val newUser = User(name, surname, email, password) -> gereksiz kod
         return true
 
     }
